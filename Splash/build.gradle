@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
+
+android {
+
+}
+
+dependencies {
+    implementation project(':UI:BaseUI')
+}

@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
+
+android {
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+    }
+
+}
+
+dependencies {
+    api(libs.bundles.commonUI)
+    api(libs.bundles.life)
+}

@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 启动页使用,包含了应用背景 -->
+    <style name="Theme.EasyFramwork.SplashBackground" parent="Theme.EasyFramwork.Base">
+        <item name="android:windowBackground">@drawable/drawable_splash</item>
+    </style>
+
+    <!--  splash页面使用  -->
+    <style name="Theme.EasyFramwork.Splash" parent="Theme.EasyFramwork.SplashBackground">
+
+    </style>
+
+</resources>

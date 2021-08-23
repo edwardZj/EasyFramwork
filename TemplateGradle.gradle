@@ -1,0 +1,76 @@
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 19
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        flavorDimensions "normal"
+    }
+
+    buildTypes {
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            //禁用PNG压缩
+            aaptOptions.cruncherEnabled = false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        dev {
+            dimension "normal"
+            //定制开发版本编译minSdkVersion为21来提高开发效率
+            minSdkVersion 21
+            //加快打包只编译一个平台,模拟器可以改为x86
+            ndk {
+                abiFilters 'arm64-v8a'
+            }
+        }
+        common {
+            dimension "normal"
+            ndk {
+                abiFilters 'arm64-v8a'
+            }
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    // 优化编译速度 如果有用到kapt添加如下配置
+//    kapt {
+//        useBuildCache = true
+//        javacOptions {
+//            option("-Xmaxerrs", 500)
+//        }
+//    }
+
+    //gradle默认会使用最新版本的库 gradle -q app:dependencies命令查看依赖树
+//    configurations.all { resolutionStrategy { failOnVersionConflict() } }
+}
+
+dependencies {
+    implementation(libs.ktx)
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

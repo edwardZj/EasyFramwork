@@ -1,0 +1,39 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        //阿里云镜像
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+    //使用CATALOG
+    enableFeaturePreview('VERSION_CATALOGS')
+    versionCatalogs {
+        libs {
+            alias('ktx').to('androidx.core:core-ktx:1.3.2')
+
+            //UI相关
+            alias('immersionbar').to('com.gyf.immersionbar:immersionbar:3.0.0')
+            alias('appcompat').to('androidx.appcompat:appcompat:1.2.0')
+            alias('material').to('com.google.android.material:material:1.3.0')
+            alias('constraintlayout').to('androidx.constraintlayout:constraintlayout:2.0.4')
+            alias('vectordrawable').to('androidx.vectordrawable:vectordrawable:1.1.0')
+            bundle('commonUI', ['constraintlayout', 'vectordrawable', 'appcompat', 'material', 'immersionbar'])
+
+            version('life-version', '2.3.1')
+            alias('livedata').to('androidx.lifecycle', 'lifecycle-livedata-ktx').versionRef('life-version')
+            alias('viewmodel').to('androidx.lifecycle', 'lifecycle-viewmodel-ktx').versionRef('life-version')
+            bundle('life', ['livedata', 'viewmodel'])
+
+        }
+    }
+}
+rootProject.name = "EasyFramwork"
+include ':app'
+include ':Splash'
+include ':MainPage'
+include ':UI:BaseUI'
+include ':Module:BaseData'
