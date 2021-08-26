@@ -4,10 +4,6 @@ plugins {
 }
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
-android {
-
-}
-
 dependencies {
     implementation project(':UI:BaseUI')
 }

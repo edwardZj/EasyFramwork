@@ -3,7 +3,7 @@
     package="com.zj.splash">
 
     <application
-        android:theme="@style/Theme.EasyFramwork">
+        >
         <activity
             android:name=".SplashActivity"
             android:exported="true"

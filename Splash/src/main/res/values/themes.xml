@@ -1,7 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- 启动页使用,包含了应用背景 -->
     <style name="Theme.EasyFramwork.SplashBackground" parent="Theme.EasyFramwork.Base">
-        <item name="android:windowBackground">@drawable/drawable_splash</item>
+        <!--    启动图可以用.9图适配    -->
+        <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
     <!--  splash页面使用  -->

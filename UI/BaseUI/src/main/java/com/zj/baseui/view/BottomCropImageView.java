@@ -29,18 +29,19 @@ public class BottomCropImageView extends androidx.appcompat.widget.AppCompatImag
     }
 
     private void init() {
-        setScaleType(ScaleType.CENTER_CROP);
+        setScaleType(ScaleType.MATRIX);
     }
 
     @Override
     public void setImageMatrix(Matrix matrix) {
+        setImgBottom(matrix);
         super.setImageMatrix(matrix);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        setImgBottom();
+        setImageMatrix(new Matrix());
     }
 
     @Override
@@ -48,20 +49,31 @@ public class BottomCropImageView extends androidx.appcompat.widget.AppCompatImag
         super.invalidate();
     }
 
-    public void setImgBottom(){
+    public void setImgBottom(Matrix matrix){
         if (getImageMatrix() != null) {
             final int dwidth = getDrawable().getIntrinsicWidth();
             final int dheight = getDrawable().getIntrinsicHeight();
 
             final int vwidth = getWidth() - getPaddingLeft() - getPaddingRight();
             final int vheight = getHeight() - getTop() - getPaddingBottom();
+
+            Matrix mDrawMatrix = matrix;
+
+            float scale;
+            float dx = 0, dy = 0;
+
             if (dwidth * vheight > vwidth * dheight) {
+                scale = (float) vheight / (float) dheight;
+                dx = (vwidth - dwidth * scale) * 0.5f;
+                mDrawMatrix.setScale(scale, scale);
+                mDrawMatrix.postTranslate(Math.round(dx), Math.round(dy));
             } else {
-                //图片缩放到和view等宽后,图片比view要高
-                float scale = (float) vwidth / (float) dwidth;
-                float dy = (vheight - dheight * scale);
-                getImageMatrix().postTranslate(0, Math.round(dy));
+                scale = (float) vwidth / (float) dwidth;
+                dy = (vheight - dheight * scale);
+                mDrawMatrix.setScale(scale, scale);
+                mDrawMatrix.postTranslate(0, Math.round(dy));
             }
+
             invalidate();
         }
     }
