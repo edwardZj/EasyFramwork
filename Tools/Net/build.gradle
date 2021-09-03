@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
+
+
+dependencies {
+    api 'com.github.liujingxing.rxhttp:rxhttp:2.6.7'
+    kapt 'com.github.liujingxing.rxhttp:rxhttp-compiler:2.6.7'
+//    api 'com.github.liujingxing.rxlife:rxlife-coroutine:2.2.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+//    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
+
+//    api(libs.gson)
+//    api(libs.coroutinesCore)
+//    api(libs.coroutinesAndroid)
+    api(libs.lifecycleKtx)
+
+
+}

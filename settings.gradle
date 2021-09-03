@@ -15,6 +15,12 @@ dependencyResolutionManagement {
     versionCatalogs {
         libs {
             alias('ktx').to('androidx.core:core-ktx:1.3.2')
+            alias('gson').to('com.google.code.gson:gson:2.8.8')
+            alias('coroutinesCore').to('org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0')
+            alias('coroutinesAndroid').to('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0')
+            alias('lifecycleKtx').to('androidx.lifecycle:lifecycle-runtime-ktx:2.3.1')
+            alias('viewmodelKtx').to('androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1')
+
 
             //UI相关
             alias('immersionbar').to('com.gyf.immersionbar:immersionbar:3.0.0')
@@ -34,11 +40,25 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "EasyFramwork"
+//app是整个app的壳,主要是一些打包相关等的app全局的内容
 include ':app'
+//启动页,广告页组件
 include ':Splash'
+//首页组件
 include ':MainPage'
+//demo测试组件,不会打进正式包里
 include ':Demo'
+//基础UI库
 include ':UI:BaseUI'
+//公共数据bean类库
 include ':Module:BaseData'
-include ':Tools:BaseEvent'
+//基础事件分发库
+//include ':Tools:BaseEvent'
+//debug工具类相关库,不会打进正式包里
 include ':Tools:Debuger'
+//网络请求库
+include ':Tools:Net'
+//图片相关库,图片加载,变换
+include ':Tools:Image'
+//通用工具库
+include ':Tools:Utils'

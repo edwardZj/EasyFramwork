@@ -6,6 +6,6 @@ apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
 
 dependencies {
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
 
 }

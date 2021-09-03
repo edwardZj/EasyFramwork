@@ -16,4 +16,8 @@ android {
 
 dependencies {
     implementation project(':UI:BaseUI')
+    debugImplementation project(':Tools:Debuger')
+    implementation project(':Tools:Image')
+    implementation project(':Tools:Utils')
+
 }
