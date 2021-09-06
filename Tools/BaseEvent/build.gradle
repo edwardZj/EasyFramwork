@@ -1,11 +1,8 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
 dependencies {
-    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
 
     api(libs.appcompat)
     api(libs.livedata)
-    api 'com.jeremyliao:live-event-bus-x:1.8.0'
+    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
 }

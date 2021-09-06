@@ -20,6 +20,8 @@ dependencyResolutionManagement {
             alias('coroutinesAndroid').to('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0')
             alias('lifecycleKtx').to('androidx.lifecycle:lifecycle-runtime-ktx:2.3.1')
             alias('viewmodelKtx').to('androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1')
+            //二维码库
+            alias('xqrcode').to('com.github.xuexiangjys:XQRCode:1.1.0')
 
 
             //UI相关
@@ -53,7 +55,7 @@ include ':UI:BaseUI'
 //公共数据bean类库
 include ':Module:BaseData'
 //基础事件分发库
-//include ':Tools:BaseEvent'
+include ':Tools:BaseEvent'
 //debug工具类相关库,不会打进正式包里
 include ':Tools:Debuger'
 //网络请求库

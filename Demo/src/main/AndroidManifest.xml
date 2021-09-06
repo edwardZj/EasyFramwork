@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zj.demo">
 
-    <application >
+    <application android:name=".DemoApplication">
         <activity
             android:name=".DemoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

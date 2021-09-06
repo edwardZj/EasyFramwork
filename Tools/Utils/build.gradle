@@ -1,11 +1,13 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
 }
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
 
 dependencies {
-
-
+    api 'io.github.idisfkj:android-startup:1.0.7'
+    //基础功能的工具类
+    api 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    //附加功能的工具类
+    api 'com.github.xuexiangjys.XUtil:xutil-sub:2.0.0'
+    api 'com.tencent:mmkv-static:1.2.10'
 }

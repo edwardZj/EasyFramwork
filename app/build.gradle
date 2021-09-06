@@ -1,13 +1,12 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
 }
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
 android {
 
     defaultConfig {
-        applicationId "com.zj.easyframwork"
+        applicationId "com.zj.app"
         versionCode 1
         versionName "1.0"
     }
@@ -23,5 +22,6 @@ android {
 dependencies {
     implementation project(':MainPage')
     debugImplementation project(':Tools:Debuger')
+    implementation project(':Tools:Utils')
 
 }

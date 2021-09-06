@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
 }
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
@@ -19,5 +18,6 @@ dependencies {
     debugImplementation project(':Tools:Debuger')
     implementation project(':Tools:Image')
     implementation project(':Tools:Utils')
+    implementation project(':Tools:Net')
 
 }

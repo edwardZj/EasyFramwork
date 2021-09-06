@@ -1,11 +1,11 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
 }
 apply from: "$rootProject.rootDir.absolutePath/TemplateGradle.gradle"
 
 
 dependencies {
-    implementation project(':UI:BaseUI')
     implementation project(':Splash')
+    api project(':UI:BaseUI')
+    api project(':Tools:BaseEvent')
+    api project(':Tools:Image')
 }

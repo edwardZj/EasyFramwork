@@ -5,12 +5,15 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+        //aspectjx 插件
+        classpath 'com.github.xuexiangjys.XAOP:xaop-plugin:1.1.0'
 
         //防dex2jar插件
 //        classpath 'ivonhoe.gradle.dexguard:dexguard-gradle:0.0.4-SNAPSHOT'
