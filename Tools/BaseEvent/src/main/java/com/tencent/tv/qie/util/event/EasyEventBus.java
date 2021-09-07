@@ -32,6 +32,15 @@ public class EasyEventBus {
     }
 
     /**
+     * 省略eventName,直接用Object的classname做key,接收的时候页直接传class就行,适合单例事件,适合组件内直接能获取引用
+     * 监听的时候直接传class
+     * @param bean
+     */
+    public static void post(Object bean) {
+        LiveEventBus.get(bean.getClass().getName()).post(bean);
+    }
+
+    /**
      * 发送闭包,但是谨慎使用,不可以传入匿名内部类imp,会引起内存泄露
      *
      * @param eventName
@@ -339,7 +348,7 @@ public class EasyEventBus {
      * @param eventName
      * @return
      */
-    public static Object getData(String eventName) {
+    public static <T> T getData(String eventName) {
         Observable event = (Observable) LiveEventBus.get(eventName);
         try {
             Field field = event.getClass().getDeclaredField("liveData");
@@ -347,9 +356,9 @@ public class EasyEventBus {
             ExternalLiveData data = (ExternalLiveData) field.get(event);
             Object value = data.getValue();
             if (value != null && value instanceof ActivityEvent) {
-                return ((ActivityEvent) value).obj;
+                return (T) ((ActivityEvent) value).obj;
             } else {
-                return value;
+                return (T)value;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package com.zj.utils.extends
+package com.zj.utils
 
 import android.app.Activity
 import android.app.Application
@@ -6,9 +6,12 @@ import android.content.Context
 import android.os.Bundle
 import com.rousetime.android_startup.AndroidStartup
 import com.rousetime.android_startup.Startup
-import com.zj.utils.BuildConfig
+import com.tencent.mmkv.MMKV
 import com.zj.utils.app.ActivityManager
 import com.zj.utils.logger.XLogger
+
+
+
 
 class UtilsInit : AndroidStartup<String>() {
 
@@ -17,6 +20,7 @@ class UtilsInit : AndroidStartup<String>() {
     override fun waitOnMainThread(): Boolean = false
 
     override fun create(context: Context): String? {
+        //初始化activitymanager
         (context as Application).registerActivityLifecycleCallbacks(object :
             Application.ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
@@ -48,9 +52,12 @@ class UtilsInit : AndroidStartup<String>() {
           }
 
         })
+        //设定log
         if (BuildConfig.DEBUG){
             XLogger.debug("=-=")
         }
+        //初始化mmkv
+        val rootDir = MMKV.initialize(context)
 
         return this.javaClass.simpleName
     }

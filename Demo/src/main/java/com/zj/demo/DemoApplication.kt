@@ -2,7 +2,7 @@ package com.zj.demo
 
 import android.app.Application
 import com.rousetime.android_startup.StartupManager
-import com.zj.utils.extends.UtilsInit
+import com.zj.utils.UtilsInit
 
 class DemoApplication : Application() {
 

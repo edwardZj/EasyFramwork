@@ -13,7 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 
 /**
- * 中间层代理
+ * 图片加载中间层代理
  */
 object Image {
 

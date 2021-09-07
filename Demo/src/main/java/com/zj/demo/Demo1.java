@@ -11,7 +11,6 @@ public class Demo1 {
         Image.with(iv);
 
 
-
         AppUtils.INSTANCE.isDebug();
         AppUtils.isDebug();
 
